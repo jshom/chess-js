@@ -1,0 +1,55 @@
+html, body {
+  height: 100vh;
+  width: 100%;
+  background: #595959;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#chess {
+  position: relative;
+  top: 25%;
+  transform: translateY(-50%);
+  left: 30%;
+}
+
+.black {
+  background: #000;
+  width: 40px;
+  height: 40px;
+  color: white;
+  transform: rotate(180deg);
+}
+
+.white {
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  color: black;
+  transform: rotate(180deg);
+}
+
+.a,.b,.c,.d,.e,.f,.g,.h {
+  float: left;
+  transform: rotate(180deg);
+  transform-origin: top bottom;;
+}
+
+/* Borders and little stuff */
+
+#h1 {
+  border-bottom-right-radius: 5%;
+}
+
+#a8 {
+  border-top-left-radius: 5%;
+}
+
+#h8 {
+  border-top-right-radius: 5%;
+}
+
+#a1 {
+  border-bottom-left-radius: 5%;
+}

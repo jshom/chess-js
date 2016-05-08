@@ -1,0 +1,29 @@
+{
+  "name": "chess-js",
+  "version": "1.0.0",
+  "description": "Chess game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshom/chess-js.git"
+  },
+  "author": "Jacob Shomstein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jshom/chess-js/issues"
+  },
+  "homepage": "https://github.com/jshom/chess-js#readme",
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-htmlmin": "^1.4.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-parallel": "^0.4.1"
+  },
+  "dependencies": {
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-express": "^1.4.1"
+  }
+}

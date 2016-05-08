@@ -1,0 +1,26 @@
+{
+  "name": "chess-js",
+  "description": "Chess game",
+  "main": "index.html",
+  "authors": [
+    "Jacob Shomstein"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chess",
+    "game"
+  ],
+  "homepage": "https://github.com/jshom/chess-js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "angular": "^1.5.5"
+  }
+}
