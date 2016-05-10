@@ -9,9 +9,9 @@ html, body {
 
 #chess {
   position: relative;
-  top: 25%;
-  transform: translateY(-50%);
-  left: 30%;
+  top: 30%;
+  transform: translateY(+100%);
+  left: 35%;
 }
 
 .black {
