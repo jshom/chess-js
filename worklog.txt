@@ -1,0 +1,3 @@
+# Jacob work log
+
+Numerize and create coordinates for piece clicked
