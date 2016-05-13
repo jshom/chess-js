@@ -1,16 +1,22 @@
 /* Jacob Shomstein */
 
-//Pieces init
+//var initial
 
-//Alphabet to numbers
-var a=1,
-    b=2,
-    c=3,
-    d=4,
-    e=5,
-    f=6,
-    g=7,
-    h=8;
+var cur_pos_raw = "",
+    cur_x = 0,
+    cur_y = 0,
+    dest_pos_raw = "",
+    dest_x = 0,
+    dest_y = 0;
+
+var pieces = {
+  black : {
+    pawn_1 : 'a8',
+  },
+  white : {
+
+  }
+}
 
 function alphanum(letter) {
   switch (letter) {
@@ -45,12 +51,26 @@ function alphanum(letter) {
 
 var inuse = false;
 
-console.log(alphanum('h'));
-if (inuse == false) {
-  $('#chess').children().children().click(function() {
-    var cur_pos_raw = $(this).attr('id');
-    var x = alphanum(cur_pos_raw.substring(0,1));
-    var y = cur_pos_raw.substring(1,2);
-    console.log("raw: " + cur_pos_raw + ", x: " + x + ", y: " + y);
-  });
+setInterval(checkclicks(), 10);
+function checkclicks() {
+  if (inuse === false) {
+    $('#chess').children().children().click(function() {
+      cur_pos_raw = $(this).attr('id');
+      cur_x = alphanum(cur_pos_raw.substring(0,1));
+      cur_y = cur_pos_raw.substring(1,2);
+      console.log("Current: raw: " + cur_pos_raw + ", x: " + cur_x + ", y: " + cur_y);
+      inuse = true;
+      console.log(inuse);
+    });
+  }
+  if (inuse) {
+    $('#chess').children().children().click(function() {
+      dest_pos_raw = $(this).attr('id');
+      dest_x = alphanum(dest_pos_raw.substring(0,1));
+      dest_y = dest_pos_raw.substring(1,2);
+      console.log("Destination: raw: " + dest_pos_raw + ", x: " + dest_x + ", y: " + dest_y);
+      inuse = false;
+      console.log(inuse);
+    });
+  }
 }

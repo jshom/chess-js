@@ -1,3 +1,7 @@
 # Jacob work log
 
 Numerize and create coordinates for piece clicked
+
+Put pieces on the board = init, images etc.
+
+Fix INUSE VALUE
