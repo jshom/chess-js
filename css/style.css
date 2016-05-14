@@ -15,19 +15,21 @@ html, body {
 }
 
 .black {
-  background: #000;
+  background: #363636;
   width: 40px;
   height: 40px;
   color: white;
   transform: rotate(180deg);
+  border: #000 solid 1px;
 }
 
 .white {
-  background: #fff;
+  background: #e2e2e2;
   width: 40px;
   height: 40px;
   color: black;
   transform: rotate(180deg);
+  border: #fff solid 1px;
 }
 
 .a,.b,.c,.d,.e,.f,.g,.h {
@@ -52,4 +54,8 @@ html, body {
 
 #a1 {
   border-bottom-left-radius: 5%;
+}
+
+img {
+  width: 40px;
 }

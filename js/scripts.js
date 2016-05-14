@@ -51,26 +51,21 @@ function alphanum(letter) {
 
 var inuse = false;
 
-setInterval(checkclicks(), 10);
-function checkclicks() {
-  if (inuse === false) {
-    $('#chess').children().children().click(function() {
-      cur_pos_raw = $(this).attr('id');
-      cur_x = alphanum(cur_pos_raw.substring(0,1));
-      cur_y = cur_pos_raw.substring(1,2);
-      console.log("Current: raw: " + cur_pos_raw + ", x: " + cur_x + ", y: " + cur_y);
-      inuse = true;
-      console.log(inuse);
-    });
+$('#chess').children().children().click(function() {
+  if (inuse == false) {
+    cur_pos_raw = $(this).attr('id');
+    cur_x = cur_pos_raw.substring(0,1);
+    cur_x_num = alphanum(cur_pos_raw.substring(0,1));
+    cur_y = cur_pos_raw.substring(1,2);
+    console.log("Current: raw: " + cur_pos_raw + ", x: " + cur_x + ", y: " + cur_y);
+    inuse = true;
+  } else {
+    dest_pos_raw = $(this).attr('id');
+    dest_x = dest_pos_raw.substring(0,1);
+    dest_x_num = alphanum(dest_pos_raw.substring(0,1));
+    dest_y = dest_pos_raw.substring(1,2);
+    console.log("Destination: raw: " + dest_pos_raw + ", x: " + dest_x + ", y: " + dest_y);
+    inuse = false;
+    $('#'+cur_pos_raw).has('img').children().empty().appendTo('#'+dest_pos_raw);
   }
-  if (inuse) {
-    $('#chess').children().children().click(function() {
-      dest_pos_raw = $(this).attr('id');
-      dest_x = alphanum(dest_pos_raw.substring(0,1));
-      dest_y = dest_pos_raw.substring(1,2);
-      console.log("Destination: raw: " + dest_pos_raw + ", x: " + dest_x + ", y: " + dest_y);
-      inuse = false;
-      console.log(inuse);
-    });
-  }
-}
+});
