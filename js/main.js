@@ -35,9 +35,7 @@ $('#chess').children().children().click(function() {
     //check for piece type and perform specific action *highlight possible and apply move
     switch (cur.type) {
       case 'pawn':
-        if (pawncheck()) {
-          $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
-        }
+        if (pawncheck()) {move();} else {error();}
         break;
       default:
         break;

@@ -33,6 +33,15 @@ module.exports = function(grunt) {
         }
       }
     },
+    imagemin : {
+      dynamic : {
+        files : [{
+          expand : true,
+          src : ['pieces/*.png'],
+          dest : 'dist/'
+        }]
+      }
+    },
     watch:{
 			options:{livereload:true},
 			files:['*/**','dist/**'],
@@ -53,9 +62,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-express');
 
-  grunt.registerTask('default', ['uglify', 'htmlmin', 'cssmin']);
+  grunt.registerTask('default', ['uglify', 'htmlmin', 'cssmin', 'imagemin']);
   grunt.registerTask('server', ['express', 'watch']);
 };

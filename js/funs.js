@@ -22,11 +22,73 @@ function alphanum(letter) {
   }
 }
 
-//function for pawn
-function pawncheck() {
-  if (dest.pos.y - cur.pos.y == 1 && cur.pos.x == dest.pos.x) {
+function numalpha(number) {
+  switch (number) {
+    case 1:
+      return 'a';
+    case 2:
+      return 'b';
+    case 3:
+      return 'c';
+    case 4:
+      return 'd';
+    case 5:
+      return 'e';
+    case 6:
+      return 'f';
+    case 7:
+      return 'g';
+    case 8:
+      return 'h';
+    default:
+      return 0;
+  }
+}
+
+function error() {
+  console.log('invalid move');
+  selected = false;
+}
+
+//move function
+function move() {
+  if (exists(dest.pos.raw)) {
+    //Remove existing piece
+    $('#'+dest.pos.raw).children().remove();
+    //Move to taken piece
+    $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
+  }
+  $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
+}
+
+function exists(location) {
+  if ($('#'+location).children().length >= 1) {
     return true;
   } else {
     return false;
+  }
+}
+
+//function for pawn
+function pawncheck() {
+  if (cur.color == "white") {
+    if (dest.pos.y - cur.pos.y == 1 && cur.pos.x == dest.pos.x && !exists(dest.pos.raw)) {
+      return true;
+    } else if (dest.pos.y - cur.pos.y == 2 && cur.pos.x == dest.pos.x && cur.pos.y == 2) {
+      return true;
+    } else if (dest.pos.y - cur.pos.y == 1 && (dest.pos.x - cur.pos.x == 1 || dest.pos.x - cur.pos.x == -1) && exists(dest.pos.raw)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  } else {
+    if (cur.pos.y - dest.pos.y == 1 && cur.pos.x == dest.pos.x) {
+      return true;
+    } else if (cur.pos.y - dest.pos.y == 2 && cur.pos.x == dest.pos.x && cur.pos.y == 7) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
