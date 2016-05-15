@@ -18,3 +18,14 @@ var dest = {
 };
 
 var selected = false;
+
+var minmax = {
+  min : {
+    x : 0,
+    y : 0
+  },
+  max : {
+    x : 0,
+    y : 0
+  }
+};

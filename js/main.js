@@ -37,6 +37,21 @@ $('#chess').children().children().click(function() {
       case 'pawn':
         if (pawncheck()) {move();} else {error();}
         break;
+      case 'rook':
+        if (rookcheck()) {move();} else {error();}
+        break;
+      case 'king':
+        if (kingcheck()) {move();} else {error();}
+        break;
+      case 'bishop':
+        //if (bishopcheck()) {move();} else {error();}
+        break;
+      case 'queen':
+        //if (queencheck()) {move();} else {error();}
+        break;
+      case 'knight':
+        //if (knightcheck()) {move();} else {error();}
+        break;
       default:
         break;
     }

@@ -52,13 +52,15 @@ function error() {
 
 //move function
 function move() {
-  if (exists(dest.pos.raw)) {
-    //Remove existing piece
-    $('#'+dest.pos.raw).children().remove();
-    //Move to taken piece
+  if (cur.color != dest.color) {
+    if (exists(dest.pos.raw)) {
+      //Remove existing piece
+      $('#'+dest.pos.raw).children().remove();
+      //Move to taken piece
+      $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
+    }
     $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
   }
-  $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
 }
 
 function exists(location) {
@@ -91,5 +93,21 @@ function pawncheck() {
     } else {
       return false;
     }
+  }
+}
+
+function kingcheck() {
+  if (Math.abs(cur.pos.x - dest.pos.x) <= 1 && Math.abs(cur.pos.y - dest.pos.y) <= 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function rookcheck() {
+  if (cur.pos.y == dest.pos.y || cur.pos.x == dest.pos.x) {
+    return true;
+  } else {
+    return false;
   }
 }
