@@ -74,18 +74,19 @@ function pawncheck() {
   if (cur.color == "white") {
     if (dest.pos.y - cur.pos.y == 1 && cur.pos.x == dest.pos.x && !exists(dest.pos.raw)) {
       return true;
-    } else if (dest.pos.y - cur.pos.y == 2 && cur.pos.x == dest.pos.x && cur.pos.y == 2) {
+    } else if (dest.pos.y - cur.pos.y == 2 && cur.pos.x == dest.pos.x && cur.pos.y == 2 && !exists(dest.pos.raw)) {
       return true;
     } else if (dest.pos.y - cur.pos.y == 1 && (dest.pos.x - cur.pos.x == 1 || dest.pos.x - cur.pos.x == -1) && exists(dest.pos.raw)) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   } else {
-    if (cur.pos.y - dest.pos.y == 1 && cur.pos.x == dest.pos.x) {
+    if (cur.pos.y - dest.pos.y == 1 && cur.pos.x == dest.pos.x && !exists(dest.pos.raw)) {
       return true;
-    } else if (cur.pos.y - dest.pos.y == 2 && cur.pos.x == dest.pos.x && cur.pos.y == 7) {
+    } else if (cur.pos.y - dest.pos.y == 2 && cur.pos.x == dest.pos.x && cur.pos.y == 7 && !exists(dest.pos.raw)) {
+      return true;
+    } else if (cur.pos.y - dest.pos.y == 1 && (dest.pos.x - cur.pos.x == 1 || dest.pos.x - cur.pos.x == -1) && exists(dest.pos.raw)) {
       return true;
     } else {
       return false;
