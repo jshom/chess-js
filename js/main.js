@@ -44,13 +44,13 @@ $('#chess').children().children().click(function() {
         if (kingcheck()) {move();} else {error();}
         break;
       case 'bishop':
-        //if (bishopcheck()) {move();} else {error();}
+        if (bishopcheck()) {move();} else {error();}
         break;
       case 'queen':
-        //if (queencheck()) {move();} else {error();}
+        if (queencheck()) {move();} else {error();}
         break;
       case 'knight':
-        //if (knightcheck()) {move();} else {error();}
+        if (knightcheck()) {move();} else {error();}
         break;
       default:
         break;

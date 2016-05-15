@@ -46,7 +46,7 @@ function numalpha(number) {
 }
 
 function error() {
-  console.log('invalid move');
+  alert('invalid move');
   selected = false;
 }
 
@@ -106,6 +106,30 @@ function kingcheck() {
 
 function rookcheck() {
   if (cur.pos.y == dest.pos.y || cur.pos.x == dest.pos.x) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function bishopcheck() {
+ if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1) {
+  return true;
+  } else {
+    return false;
+  }
+}
+
+function queencheck() {
+ if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1 || cur.pos.x == dest.pos.x || cur.pos.y == dest.pos.y) {
+  return true;
+  } else {
+    return false;
+  }
+}
+
+function knightcheck() {
+  if ( ( (Math.abs(dest.pos.y - cur.pos.y) == 1) && (Math.abs(dest.pos.x - cur.pos.x) == 2 )) || ( (Math.abs(dest.pos.y - cur.pos.y)) == 2 && (Math.abs(dest.pos.x - cur.pos.x) == 1) ) ) {
     return true;
   } else {
     return false;
