@@ -1,9 +1,14 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     uglify : {
+      options : {
+        mangle : true,
+        screwlE8 : true
+      },
       dist : {
         files : {
-          'dist/js/scripts.js' : 'js/scripts.js'
+          'js/scripts.js' : ['js/init.js', 'js/funs.js', 'js/main.js'],
+          'dist/js/scripts.js' : ['js/scripts.js']
         }
       }
     },
@@ -53,4 +58,4 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['uglify', 'htmlmin', 'cssmin']);
   grunt.registerTask('server', ['express', 'watch']);
-}
+};
