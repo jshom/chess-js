@@ -61,3 +61,10 @@ img {
   cursor: pointer;
   position: absolute;
 }
+
+h1, ul {
+  color: white;
+  text-align: center;
+  font-family: helvetica, arial;
+  list-style-type: none;
+}
