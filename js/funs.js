@@ -46,7 +46,7 @@ function numalpha(number) {
 }
 
 function error() {
-  alert('invalid move');
+  console.log('invalid move');
   selected = false;
 }
 
@@ -96,6 +96,7 @@ function pawncheck() {
   }
 }
 
+//Done
 function kingcheck() {
   if (Math.abs(cur.pos.x - dest.pos.x) <= 1 && Math.abs(cur.pos.y - dest.pos.y) <= 1) {
     return true;
@@ -104,14 +105,16 @@ function kingcheck() {
   }
 }
 
+//Restrict
 function rookcheck() {
-  if (cur.pos.y == dest.pos.y || cur.pos.x == dest.pos.x) {
+  if ((cur.pos.y == dest.pos.y || cur.pos.x == dest.pos.x) && (dest.pos.y >= cur.min.y && dest.pos.y <= cur.max.y) && (dest.pos.x >= cur.min.x && dest.pos.x <= cur.max.x)) {
     return true;
   } else {
     return false;
   }
 }
 
+//Restrict
 function bishopcheck() {
  if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1) {
   return true;
@@ -120,18 +123,90 @@ function bishopcheck() {
   }
 }
 
+//Restrict
 function queencheck() {
- if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1 || cur.pos.x == dest.pos.x || cur.pos.y == dest.pos.y) {
+  if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1 || cur.pos.x == dest.pos.x || cur.pos.y == dest.pos.y) {
   return true;
   } else {
     return false;
   }
 }
 
+//Done
 function knightcheck() {
-  if ( ( (Math.abs(dest.pos.y - cur.pos.y) == 1) && (Math.abs(dest.pos.x - cur.pos.x) == 2 )) || ( (Math.abs(dest.pos.y - cur.pos.y)) == 2 && (Math.abs(dest.pos.x - cur.pos.x) == 1) ) ) {
+  if (((Math.abs(dest.pos.y - cur.pos.y) == 1) && (Math.abs(dest.pos.x - cur.pos.x) == 2)) || ( (Math.abs(dest.pos.y - cur.pos.y)) == 2 && (Math.abs(dest.pos.x - cur.pos.x) == 1) ) ) {
     return true;
   } else {
     return false;
   }
+}
+
+//generates maximum Y value going up the board
+function MaxY(Y) {
+  //initiaze after +1 so it doesnt catch itself
+  var temploc = numalpha(cur.pos.x)+(Y+1);
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.max.y = Y+1;
+    console.log(cur.max.y);
+    return;
+  } else if (Y >= 8) {
+    cur.max.y = 8;
+    return;
+  }
+  MaxY(Y + 1);
+}
+
+//generates minimum Y value going down the board
+function MinY(Y) {
+  //initiaze after +1 so it doesnt catch itself
+  var temploc = numalpha(cur.pos.x)+(Y-1);
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.min.y = Y-1;
+    console.log(cur.min.y);
+    return;
+  } else if (Y <= 1) {
+    cur.min.y = 1;
+    return;
+  }
+  MinY(Y - 1);
+}
+
+//generates maximum X value striaght across to the right of the board
+function MaxX(X) {
+  //initiaze after +1 so it doesnt catch itself
+  var temploc = numalpha(X + 1) + cur.pos.y;
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.max.x = X+1;
+    console.log(cur.max.x);
+    return;
+  } else if (X >= 8) {
+    cur.max.x = 8;
+    console.log(cur.max.x);
+    return;
+  }
+  MaxX(X + 1);
+}
+
+//generates minimum X value striaght cross to the left of the board
+function MinX(X) {
+  //initiaze after +1 so it doesnt catch itself
+  var temploc = numalpha(X - 1) + cur.pos.y;
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.min.x = X-1;
+    console.log(cur.min.x);
+    return;
+  } else if (X <= 1) {
+    cur.min.x = 1;
+    console.log(cur.min.x);
+    return;
+  }
+  MinX(X - 1);
 }

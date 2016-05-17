@@ -8,10 +8,13 @@ html, body {
 }
 
 #chess {
-  position: relative;
-  top: 30%;
-  transform: translateY(+100%);
-  left: 35%;
+  width: 352px;
+  height: 352px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -176px;
+  margin-top: -176px;
 }
 
 .black {
@@ -67,4 +70,10 @@ h1, ul {
   text-align: center;
   font-family: helvetica, arial;
   list-style-type: none;
+  margin-right: 15px;
+}
+
+li {
+  text-align: center;
+  margin-right: 20px;
 }

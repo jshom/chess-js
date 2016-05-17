@@ -9,14 +9,23 @@ $('#chess').children().children().click(function() {
     cur.pos.raw = $(this).attr('id');
     cur.pos.x = alphanum(cur.pos.raw.substring(0,1));
     cur.pos.y = Number(cur.pos.raw.substring(1,2));
+    if (cur.type == 'rook' || 'queen') {
+      MaxX(cur.pos.x);
+      MaxY(cur.pos.y);
+      MinX(cur.pos.x);
+      MinY(cur.pos.y);
+    }
+    if (cur.type == 'bishop' || 'queen') {
+      //MaxDiagPos
+      //MinDiagNeg
 
+    }
     console.log(cur);
 
     //check if selected piece
     if (!cur.type) {
       //later put id or person check to white/black to make sure they are not using wrong pieces
-      selected = false;
-      alert('Improper Move');
+      error();
     } else {
       selected = true;
     }
