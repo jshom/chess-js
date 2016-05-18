@@ -13,6 +13,28 @@ var cur = {
   min : {
     x : 0,
     y : 0
+  },
+  diag : {
+    positive : {
+      left : {
+        x : 0,
+        y : 0
+      },
+      right : {
+        x : 0,
+        y : 0
+      }
+    },
+    negative : {
+      left : {
+        x : 0,
+        y : 0
+      },
+      right : {
+        x : 0,
+        y : 0
+      }
+    }
   }
 };
 

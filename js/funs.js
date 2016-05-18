@@ -126,7 +126,13 @@ function bishopcheck() {
 //Restrict
 function queencheck() {
   if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1 || cur.pos.x == dest.pos.x || cur.pos.y == dest.pos.y) {
-  return true;
+    if (dest.pos.y >= cur.min.y && dest.pos.y <= cur.max.y && dest.pos.x >= cur.min.x && dest.pos.x <= cur.max.x) {
+      //checks only for horizantal and vertical
+      return true;
+    } else if (1 == 1) {
+      //checks only for horizantal and vertical
+      return true;
+    }
   } else {
     return false;
   }
@@ -209,4 +215,127 @@ function MinX(X) {
     return;
   }
   MinX(X - 1);
+}
+
+//generates coordinates for maximum positive slope right
+function MaxDiagPositiveRight(X, Y) {
+  var temploc = numalpha(X + 1) + (Y + 1);
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.diag.positive.right.x = X + 1;
+    cur.diag.positive.right.y = Y + 1;
+    console.log(cur.diag.positive.right);
+    return;
+  }
+  if (X >= 8) {
+    cur.diag.positive.right.x = 8;
+    cur.diag.positive.right.y = Y;
+    return;
+  } else if (Y >= 8) {
+    cur.diag.positive.right.x = X;
+    cur.diag.positive.right.y = 8;
+    return;
+  }
+  MaxDiagPositiveRight(X + 1, Y + 1);
+}
+
+//generates coordinates for maximum positive slope left
+function MaxDiagPositiveLeft(X, Y) {
+  var temploc = numalpha(X - 1) + (Y - 1);
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.diag.positive.left.x = X - 1;
+    cur.diag.positive.left.y = Y - 1;
+    console.log(cur.diag.positive.left);
+    return;
+  }
+  if (X <= 1) {
+    cur.diag.positive.left.x = 1;
+    cur.diag.positive.left.y = Y;
+    console.log(cur.diag.positive.left);
+    return;
+  } else if (Y <= 1) {
+    cur.diag.positive.left.x = X;
+    cur.diag.positive.left.y = 1;
+    console.log(cur.diag.positive.left);
+    return;
+  }
+  MaxDiagPositiveLeft(X - 1, Y - 1);
+}
+
+//generates coordinates for maximum positive slope left
+function MaxDiagPositiveLeft(X, Y) {
+  var temploc = numalpha(X - 1) + (Y - 1);
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.diag.positive.left.x = X - 1;
+    cur.diag.positive.left.y = Y - 1;
+    console.log(cur.diag.positive.left);
+    return;
+  }
+  if (X <= 1) {
+    cur.diag.positive.left.x = 1;
+    cur.diag.positive.left.y = Y;
+    console.log(cur.diag.positive.left);
+    return;
+  } else if (Y <= 1) {
+    cur.diag.positive.left.x = X;
+    cur.diag.positive.left.y = 1;
+    console.log(cur.diag.positive.left);
+    return;
+  }
+  MaxDiagPositiveLeft(X - 1, Y - 1);
+}
+
+//generates coordinates for maximum negative slope right
+function MaxDiagNegativeRight(X, Y) {
+  var temploc = numalpha(X + 1) + (Y - 1);
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.diag.negative.right.x = X + 1;
+    cur.diag.negative.right.y = Y - 1;
+    console.log(cur.diag.negative.right);
+    return;
+  }
+  if (X >= 8) {
+    cur.diag.negative.right.x = 8;
+    cur.diag.negative.right.y = Y;
+    console.log(cur.diag.negative.right);
+    return;
+  } else if (Y <= 1) {
+    cur.diag.negative.right.x = X;
+    cur.diag.negative.right.y = 1;
+    console.log(cur.diag.negative.right);
+    return;
+  }
+  MaxDiagNegativeRight(X + 1, Y - 1);
+}
+
+//generates coordinates for maximum negative slope left
+function MaxDiagNegativeLeft(X, Y) {
+  var temploc = numalpha(X - 1) + (Y + 1);
+  console.log(temploc);
+  if (exists(temploc)) {
+    console.log("end");
+    cur.diag.negative.left.x = X - 1;
+    cur.diag.negative.left.y = Y + 1;
+    console.log(cur.diag.negative.left);
+    return;
+  }
+  if (X <= 1) {
+    cur.diag.negative.left.x = 1;
+    cur.diag.negative.left.y = Y;
+    console.log(cur.diag.negative.left);
+    return;
+  } else if (Y >= 8) {
+    cur.diag.negative.left.x = X;
+    cur.diag.negative.left.y = 8;
+    console.log(cur.diag.negative.left);
+    return;
+  }
+  MaxDiagNegativeLeft(X - 1, Y + 1);
 }
