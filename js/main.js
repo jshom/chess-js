@@ -9,37 +9,17 @@ $('#chess').children().children().click(function() {
     cur.pos.raw = $(this).attr('id');
     cur.pos.x = alphanum(cur.pos.raw.substring(0,1));
     cur.pos.y = Number(cur.pos.raw.substring(1,2));
-    if ((cur.type == 'rook' || 'queen') && (cur.pos.x != 8 || 0) && (cur.pos.y != 8 || 0)) {
-      if (cur.pos.x != 8) {
-        MaxX(cur.pos.x);
-      } else {
-        cur.max.x = 8;
-        cur.max.y = cur.pos.y;
-      }
-      if (cur.pos.y != 8) {
-        MaxY(cur.pos.y);
-      } else {
-        cur.max.y = 8;
-        cur.max.x = cur.pos.x;
-      }
-      if (cur.pos.x != 1) {
-        MinX(cur.pos.x);
-      } else {
-        cur.min.x = 1;
-        cur.max.y = cur.pos.y;
-      }
-      if (cur.pos.y != 1) {
-        MinY(cur.pos.y);
-      } else {
-        cur.min.y = 1;
-        cur.min.x = cur.pos.x;
-      }
+    if ((cur.type === 'rook' || cur.type === 'queen')) {
+      MaxX(cur.pos.x);
+      MaxY(cur.pos.y);
+      MinX(cur.pos.x);
+      MinY(cur.pos.y);
     }
-    if (cur.type == 'bishop' || 'queen') {
-      MaxDiagPositiveRight();
-      MaxDiagPositiveLeft();
-      MaxDiagNegativeLeft();
-      MaxDiagNegativeRight();
+    if (cur.type === 'queen' || cur.type === 'bishop') {
+      MaxDiagPositiveRight(cur.pos.x, cur.pos.y);
+      MaxDiagPositiveLeft(cur.pos.x, cur.pos.y);
+      MaxDiagNegativeLeft(cur.pos.x, cur.pos.y);
+      MaxDiagNegativeRight(cur.pos.x, cur.pos.y);
     }
     console.log(cur);
 
