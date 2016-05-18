@@ -150,10 +150,31 @@ function bishopcheck() {
 //Restrict
 function queencheck() {
   if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1 || cur.pos.x == dest.pos.x || cur.pos.y == dest.pos.y) {
-    if (dest.pos.y >= cur.min.y && dest.pos.y <= cur.max.y && dest.pos.x >= cur.min.x && dest.pos.x <= cur.max.x) {
+    if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) != 1 && dest.pos.y >= cur.min.y && dest.pos.y <= cur.max.y && dest.pos.x >= cur.min.x && dest.pos.x <= cur.max.x) {
       return true;
-    } else if (1==1){
-      return true;
+    } else if ((dest.pos.y - cur.pos.y >= 1) && (dest.pos.x - cur.pos.x >= 1)) {
+      var qposDistPosRight = cur.diag.positive.right.x - cur.pos.x;
+      if (qposDistPosRight >= (dest.pos.x - cur.pos.x)) {
+        return true;
+      }
+    //+-
+    } else if ((dest.pos.y - cur.pos.y <= -1) && (dest.pos.x - cur.pos.x >= 1)) {
+      var qposDistNegRight = cur.diag.negative.right.x - cur.pos.x;
+      if (qposDistNegRight >= (dest.pos.x - cur.pos.x)) {
+        return true;
+      }
+    //-+
+    } else if ((dest.pos.y - cur.pos.y >= 1) && (dest.pos.x - cur.pos.x <= -1)) {
+      var qposDistNegLeft = cur.pos.x - cur.diag.negative.left.x;
+      if (qposDistNegLeft >= (cur.pos.x - dest.pos.x)) {
+        return true;
+      }
+    //--
+    } else if ((dest.pos.y - cur.pos.y <= -1) && (dest.pos.x - cur.pos.x <= -1)) {
+      var qposDistPosLeft = cur.pos.x - cur.diag.positive.left.x;
+      if (qposDistPosLeft >= (cur.pos.x - dest.pos.x)) {
+        return true;
+      }
     }
   } else {
     return false;
