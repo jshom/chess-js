@@ -119,27 +119,26 @@ function bishopcheck() {
   if (Math.abs((dest.pos.y - cur.pos.y)/(dest.pos.x - cur.pos.x)) == 1) {
     //++
     if ((dest.pos.y - cur.pos.y >= 1) && (dest.pos.x - cur.pos.x >= 1)) {
-      var posDistPosRight = cur.diag.positive.right.x - cur.pos.x;
-      if (posDistPosRight >= (dest.pos.x - cur.pos.x)) {
+      var bposDistPosRight = cur.diag.positive.right.x - cur.pos.x;
+      if (bposDistPosRight >= (dest.pos.x - cur.pos.x)) {
         return true;
       }
     //+-
     } else if ((dest.pos.y - cur.pos.y <= -1) && (dest.pos.x - cur.pos.x >= 1)) {
-      var posDistNegRight = cur.diag.negative.right.x - cur.pos.x;
-      if (posDistNegRight >= (dest.pos.x - cur.pos.x)) {
+      var bposDistNegRight = cur.diag.negative.right.x - cur.pos.x;
+      if (bposDistNegRight >= (dest.pos.x - cur.pos.x)) {
         return true;
       }
     //-+
     } else if ((dest.pos.y - cur.pos.y >= 1) && (dest.pos.x - cur.pos.x <= -1)) {
-      var posDistNegLeft = cur.pos.x - cur.diag.negative.left.x;
-      console.log(posDistNegLeft);
-      if (posDistNegLeft >= (cur.pos.x - dest.pos.x)) {
+      var bposDistNegLeft = cur.pos.x - cur.diag.negative.left.x;
+      if (bposDistNegLeft >= (cur.pos.x - dest.pos.x)) {
         return true;
       }
     //--
     } else if ((dest.pos.y - cur.pos.y <= -1) && (dest.pos.x - cur.pos.x <= -1)) {
-      var posDistPosLeft = cur.pos.x - cur.diag.positive.left.x;
-      if (posDistPosLeft >= (cur.pos.x - dest.pos.x)) {
+      var bposDistPosLeft = cur.pos.x - cur.diag.positive.left.x;
+      if (bposDistPosLeft >= (cur.pos.x - dest.pos.x)) {
         return true;
       }
     }
@@ -228,16 +227,6 @@ function MinX(X) {
 
 //generates coordinates for maximum positive slope right
 function MaxDiagPositiveRight(X, Y) {
-  if (X === 8) {
-    cur.diag.positive.right.x = 8;
-    cur.diag.positive.right.y = cur.pos.y;
-    return;
-  }
-  if (Y === 8) {
-    cur.diag.positive.right.x = cur.pos.x;
-    cur.diag.positive.right.y = 8;
-    return;
-  }
   var temploc = numalpha(X + 1) + (Y + 1);
   if (exists(temploc)) {
     cur.diag.positive.right.x = X + 1;
@@ -258,16 +247,6 @@ function MaxDiagPositiveRight(X, Y) {
 
 //generates coordinates for maximum positive slope left
 function MaxDiagPositiveLeft(X, Y) {
-  if (X === 1) {
-    cur.diag.positive.left.x = 1;
-    cur.diag.positive.left.y = cur.pos.y;
-    return;
-  }
-  if (Y === 1) {
-    cur.diag.positive.left.x = cur.pos.x;
-    cur.diag.positive.left.y = 1;
-    return;
-  }
   var temploc = numalpha(X - 1) + (Y - 1);
   if (exists(temploc)) {
     cur.diag.positive.left.x = X - 1;
@@ -288,16 +267,6 @@ function MaxDiagPositiveLeft(X, Y) {
 
 //generates coordinates for maximum negative slope right
 function MaxDiagNegativeRight(X, Y) {
-  if (X === 8) {
-    cur.diag.negative.right.x = 8;
-    cur.diag.negative.right.y = cur.pos.y;
-    return;
-  }
-  if (Y === 1) {
-    cur.diag.negative.right.x = cur.pos.x;
-    cur.diag.negative.right.y = 1;
-    return;
-  }
   var temploc = numalpha(X + 1) + (Y - 1);
   if (exists(temploc)) {
     cur.diag.negative.right.x = X + 1;
@@ -318,16 +287,6 @@ function MaxDiagNegativeRight(X, Y) {
 
 //generates coordinates for maximum negative slope left
 function MaxDiagNegativeLeft(X, Y) {
-  if (X === 1) {
-    cur.diag.negative.left.x = 1;
-    cur.diag.negative.left.y = cur.pos.y;
-    return;
-  }
-  if (Y === 8) {
-    cur.diag.negative.left.x = cur.pos.x;
-    cur.diag.negative.left.y = 8;
-    return;
-  }
   var temploc = numalpha(X - 1) + (Y + 1);
   if (exists(temploc)) {
     cur.diag.negative.left.x = X - 1;
