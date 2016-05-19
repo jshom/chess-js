@@ -66,6 +66,8 @@ img {
 }
 
 h1, ul {
+  top: -80px;
+  position: relative;
   color: white;
   text-align: center;
   font-family: helvetica, arial;
@@ -76,4 +78,10 @@ h1, ul {
 li {
   text-align: center;
   margin-right: 20px;
+}
+
+h3,h4 {
+  font-family: helvetica, arial;
+  color: white;
+  margin-left: 10px;
 }

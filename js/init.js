@@ -48,3 +48,4 @@ var dest = {
 };
 
 var selected = false;
+var movenum = 1;

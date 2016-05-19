@@ -60,6 +60,13 @@ function move() {
       $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
     }
     $('#'+cur.pos.raw).has('img').children().empty().appendTo('#'+dest.pos.raw);
+    if (dest.type == 'king') {
+      if (dest.color == 'white') {
+        alert('black WINS!');
+      } else {
+        alert('white WINS!');
+      }
+    }
   }
 }
 

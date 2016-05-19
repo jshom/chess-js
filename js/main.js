@@ -22,13 +22,12 @@ $('#chess').children().children().click(function() {
       MaxDiagNegativeRight(cur.pos.x, cur.pos.y);
     }
     console.log(cur);
-
-    //check if selected piece
-    if (!cur.type) {
-      //later put id or person check to white/black to make sure they are not using wrong pieces
+    if (!cur.type || (movenum % 2 == 1 && cur.color != 'white') || (movenum % 2 === 0 && cur.color != 'black')) {
       error();
     } else {
+      console.log(movenum);
       selected = true;
+      movenum++;
     }
 
   } else {
