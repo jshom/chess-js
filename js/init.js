@@ -1,3 +1,13 @@
+//Firebase config
+var fireConfig = {
+    apiKey: "AIzaSyC2yIm0pWutAVj7jWnT2AMS0G27Fuw6NWk",
+    authDomain: "chesserino.firebaseapp.com",
+    databaseURL: "https://chesserino.firebaseio.com",
+    storageBucket: "chesserino.appspot.com",
+  };
+
+var fire = firebase.databse();
+
 var cur = {
   color : "",
   type : "",

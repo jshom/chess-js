@@ -28,6 +28,11 @@ $('#chess').children().children().click(function() {
       console.log(movenum);
       selected = true;
       movenum++;
+      if ($('h4').html == 'WHITE') {
+        $('this').html('BLACK');
+      } else {
+        $('this').html('WHITE');
+      }
     }
 
   } else {
@@ -69,5 +74,8 @@ $('#chess').children().children().click(function() {
 
     //Say its now unselected
     selected = false;
+
+    fire.ref("cur").update({cur});
+    fire.ref("dest").update({dest});
   }
 });
