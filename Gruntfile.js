@@ -41,23 +41,7 @@ module.exports = function(grunt) {
           dest : 'dist/'
         }]
       }
-    },
-    watch:{
-			options:{livereload:true},
-			files:['*/**','dist/**'],
-			tasks:[]
-		},
-  		express:{
-  			all:{
-  				options:{
-  					port:4500,
-  					hostname:'localhost',
-            bases:['./dist'],
-  					livereload:true
-  				}
-  			}
-  		}
-
+    }
   });
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
@@ -67,5 +51,4 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-express');
 
   grunt.registerTask('default', ['uglify', 'htmlmin', 'cssmin', 'imagemin']);
-  grunt.registerTask('server', ['express', 'watch']);
 };
