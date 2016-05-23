@@ -1,11 +1,11 @@
 //Firebase config
-//var fireConfig = {
-//    apiKey: "AIzaSyC2yIm0pWutAVj7jWnT2AMS0G27Fuw6NWk",
-//    authDomain: "chesserino.firebaseapp.com",
-//    databaseURL: "https://chesserino.firebaseio.com"
-//  };
+var fireConfig = {
+    apiKey: "AIzaSyC2yIm0pWutAVj7jWnT2AMS0G27Fuw6NWk",
+    authDomain: "chesserino.firebaseapp.com",
+    databaseURL: "https://chesserino.firebaseio.com"
+};
 
-//firebase.initializeApp(fireConfig);
+var fire = firebase.initializeApp(fireConfig);
 
 //var fire = firebase.database();
 

@@ -70,8 +70,10 @@ $('#chess').children().children().click(function() {
     //Say its now unselected
     selected = false;
 
-    //firebase.ref("cur").update([cur]);
-    //firebase.ref("dest").update([dest]);
+
+    //send cur -> dest db after done local ** Later create onupdate to only use move() from updated cur and dest
+    fire.databse().ref('cur/').update([cur]);
+    fire.databse().ref('dest/').update([dest]);
 
     //LOOK IF KING IS IN RANGE
     if ((movenum - 1) % 2 == 1) {
