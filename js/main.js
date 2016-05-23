@@ -28,11 +28,6 @@ $('#chess').children().children().click(function() {
       console.log(movenum);
       selected = true;
       movenum++;
-      if ($('h4').html == 'WHITE') {
-        $('this').html('BLACK');
-      } else {
-        $('this').html('WHITE');
-      }
     }
 
   } else {
@@ -75,7 +70,14 @@ $('#chess').children().children().click(function() {
     //Say its now unselected
     selected = false;
 
-    fire.ref("cur").update({cur});
-    fire.ref("dest").update({dest});
+    //firebase.ref("cur").update([cur]);
+    //firebase.ref("dest").update([dest]);
+
+    //LOOK IF KING IS IN RANGE
+    if ((movenum - 1) % 2 == 1) {
+      $('h4:first').html('BLACK');
+    } else {
+      $('h4:first').html('WHITE');
+    }
   }
 });

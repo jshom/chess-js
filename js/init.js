@@ -1,12 +1,13 @@
 //Firebase config
-var fireConfig = {
-    apiKey: "AIzaSyC2yIm0pWutAVj7jWnT2AMS0G27Fuw6NWk",
-    authDomain: "chesserino.firebaseapp.com",
-    databaseURL: "https://chesserino.firebaseio.com",
-    storageBucket: "chesserino.appspot.com",
-  };
+//var fireConfig = {
+//    apiKey: "AIzaSyC2yIm0pWutAVj7jWnT2AMS0G27Fuw6NWk",
+//    authDomain: "chesserino.firebaseapp.com",
+//    databaseURL: "https://chesserino.firebaseio.com"
+//  };
 
-var fire = firebase.databse();
+//firebase.initializeApp(fireConfig);
+
+//var fire = firebase.database();
 
 var cur = {
   color : "",
