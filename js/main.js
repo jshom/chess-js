@@ -1,5 +1,12 @@
 /* (c) Jacob Shomstein */
 
+//DAATABSE ON CHANGE UPDATE
+fire.database().ref().on('value', function (snapshot) {
+  cur = snapshot.cur;
+  dest = snapshot.dest;
+  move();
+})
+
 $('#chess').children().children().click(function() {
   if (selected === false) {
 
