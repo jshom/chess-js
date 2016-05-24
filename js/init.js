@@ -7,6 +7,8 @@ var fireConfig = {
 
 var fire = firebase.initializeApp(fireConfig);
 
+var getdb = false;
+
 var cur = {
   color : "",
   type : "",

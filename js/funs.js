@@ -332,3 +332,24 @@ function MaxDiagNegativeLeft(X, Y) {
   }
   MaxDiagNegativeLeft(X - 1, Y + 1);
 }
+
+function sendtodb() {
+  fire.database().ref('cur/pos/').set({
+    raw : cur.pos.raw,
+    x : cur.pos.x,
+    y : cur.pos.y
+  });
+  fire.database().ref('cur/').set({
+    type : cur.type,
+    color : cur.color
+  });
+  fire.database().ref('dest/pos/').set({
+    raw : dest.pos.raw,
+    x : dest.pos.x,
+    y : dest.pos.y
+  });
+  fire.database().ref('dest/').set({
+    type : dest.type,
+    color : dest.color
+  });
+}
